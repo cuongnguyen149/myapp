@@ -43,5 +43,5 @@ jobs:
       - name: Newman
         uses: matt-ball/newman-action@master
         with:
-          collection: postman_collection
-          environment: postman_environment
+          collection: postman_collection.json
+          environment: postman_environment.json
