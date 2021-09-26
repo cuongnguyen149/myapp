@@ -28,11 +28,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users?a=12&b=123",
+					"raw": "{{url}}/users?a=12&b=123",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"users"
 					],

@@ -35,10 +35,11 @@ jobs:
       # - name: Start server
       #   run: npm start
 
-      # - name: Newman
-      #   uses: matt-ball/newman-action@master
-      #   with:
-      #     collection: postman_collection.json
+      - name: Newman
+        uses: matt-ball/newman-action@master
+        with:
+          collection: postman_collection.json
+          environment: postman_environment
 
       - name: Add remote origin
         run: |
