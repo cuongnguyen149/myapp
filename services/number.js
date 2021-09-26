@@ -2,8 +2,12 @@ const add = (a, b) => {
   return a + b;
 };
 
+const sub = (a, b) => {
+  return a - b;
+};
 const number = {
-  add
+  add,
+  sub
 };
 
 module.exports = number;

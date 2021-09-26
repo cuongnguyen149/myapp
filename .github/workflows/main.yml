@@ -32,15 +32,6 @@ jobs:
       - name: Test
         run: npm run test
 
-      # - name: Start server
-      #   run: npm start
-
-      - name: Newman
-        uses: matt-ball/newman-action@master
-        with:
-          collection: postman_collection.json
-          environment: postman_environment
-
       - name: Add remote origin
         run: |
           git fetch --unshallow  
@@ -48,3 +39,9 @@ jobs:
 
       - name: Deploy to Heroku
         run: git push heroku HEAD:master -f
+
+      - name: Newman
+        uses: matt-ball/newman-action@master
+        with:
+          collection: https://www.getpostman.com/collections/370f710adb0a28759d75
+          environment: postman_environment
