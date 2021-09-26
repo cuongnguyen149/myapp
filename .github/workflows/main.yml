@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,12 +30,18 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm run test 
-      
+        run: npm run test
+
       - name: Start server
         run: npm start
-      
+
       - name: Newman
         uses: matt-ball/newman-action@master
         with:
-          collection: postman_collection.json 
+          collection: postman_collection.json
+
+      - name: Add remote origin
+        run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
+      - name: Deploy to Heroku
+        run: git push heroku HEAD:master -f
