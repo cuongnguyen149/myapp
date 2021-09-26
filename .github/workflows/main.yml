@@ -39,7 +39,7 @@ jobs:
         run: |
           npm run start:dev &
           sleep 60
-          newman run postman_collection.json -e postman_environment.json
+          newman run postman_collection.json -e postman_environment_local.json
 
       - name: Add remote origin
         run: |
@@ -48,9 +48,3 @@ jobs:
 
       - name: Deploy to Heroku
         run: git push heroku HEAD:master -f
-
-      - name: Newman
-        uses: matt-ball/newman-action@master
-        with:
-          collection: postman_collection.json
-          environment: postman_environment.json
