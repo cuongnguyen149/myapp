@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "ADD",
 			"event": [
 				{
 					"listen": "test",
@@ -28,12 +28,58 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/users?a=12&b=123",
+					"raw": "{{url}}/calculations/add?a=12&b=123",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"users"
+						"calculations",
+						"add"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "12"
+						},
+						{
+							"key": "b",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SUB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.total).to.eql(135);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/calculations/sub?a=12&b=123",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculations",
+						"sub"
 					],
 					"query": [
 						{
