@@ -62,7 +62,7 @@
 							"});",
 							"pm.test(\"Your test name\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.total).to.eql(135);",
+							"    pm.expect(jsonData.result).to.eql(-111);",
 							"});"
 						],
 						"type": "text/javascript"
